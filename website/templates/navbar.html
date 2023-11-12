@@ -27,11 +27,16 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-disabled="true" name="register" href="#">time: {% now "g:i:s" %}</a>
+        </li>
         
         {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" aria-disabled="true" name="logout" href="{% url 'logout' %}">Logout</a>
         </li>
+
+       
         {% else %}
         <li class="nav-item">
           <a class="nav-link" aria-disabled="true" name="register" href="{% url 'register' %}">Register</a>

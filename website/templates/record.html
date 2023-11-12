@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ member_record }}</h1>
+    <h3>Data:</h3>
+
+    <div><bold>First Name:</bold> {{ member_record.first_name }}</div>
+    <div><bold>Last Name:</bold> {{ member_record.last_name }}</div>
+    <div><bold>Address:</bold> {{ member_record.address }}</div>
+    <div><bold>Contact:</bold> {{ member_record.contact }}</div>
+    <div><bold>Email:</bold> {{ member_record.email }}</div>
+    <div><bold>Blood Group:</bold> {{ member_record.blood_group }}</div>
+{% endblock content %}
+    
