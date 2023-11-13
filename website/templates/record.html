@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ member_record }}</h1>
-    <h3>Data:</h3>
+        <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ member_record }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Position</h6>
+          <div class="">
+            <div><strong>First Name:</strong> {{ member_record.first_name }}</div>
+            <div><strong>Last Name:</strong> {{ member_record.last_name }}</div>
+            <div><strong>Address:</strong> {{ member_record.address }}</div>
+            <div><strong>Contact:</strong> {{ member_record.contact }}</div>
+            <div><strong>Email:</strong> {{ member_record.email }}</div>
+            <div><strong>Blood Group:</strong> {{ member_record.blood_group }}</div>
+          </div>
+          <a href="#" class="card-link">Edit</a>
+          <a href="#" class="card-link text-danger">Delete</a>
+        </div>
+      </div>
 
-    <div><bold>First Name:</bold> {{ member_record.first_name }}</div>
-    <div><bold>Last Name:</bold> {{ member_record.last_name }}</div>
-    <div><bold>Address:</bold> {{ member_record.address }}</div>
-    <div><bold>Contact:</bold> {{ member_record.contact }}</div>
-    <div><bold>Email:</bold> {{ member_record.email }}</div>
-    <div><bold>Blood Group:</bold> {{ member_record.blood_group }}</div>
+   
 {% endblock content %}
     
