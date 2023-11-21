@@ -1,14 +1,31 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
 
+
+<style>
+    .plain a{
+        text-decoration: none;   
+    }
+    .plain a:link{
+        color: black;
+    }
+    .plain a:visited{
+        color: black;
+    }
+    .plain a:hover{
+        color: rgba(65, 141, 182, 0.463);
+    }
+
+
+</style>
     <div>
 
 {% if user.is_authenticated %}
     <h1>Members</h1>
     <br><br>
-    <table class="table table-striped table-hover table-bordered">
+    <table class="table table-striped table-hover table-bordered plain">
         <thead class="table-dark">
           <tr>
             <th scope="col">ID</th>
@@ -23,7 +40,7 @@
             
                 {% if members %}
                   {% for member in members %}
-                   <tr>
+                   <tr class="plain_link">
                        <td><a href="{% url 'member' member.id %}">{{ member.id }}</a> </td>
                        <td>{{ member }} </td>
                        <td>

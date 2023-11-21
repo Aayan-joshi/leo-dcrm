@@ -12,6 +12,8 @@ class Member(models.Model):
     date_of_birth =models.DateField(max_length=50)
     contact =models.CharField(max_length=15)
     email =models.CharField(max_length=150)
+    position = models.CharField(max_length=30, default="Member")
+    committee = models.CharField(max_length=50, default="null")
 
     def __str__(self):
         return(f"{self.first_name} {self.last_name}")
