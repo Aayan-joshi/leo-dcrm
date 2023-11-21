@@ -33,6 +33,15 @@ class SignUpForm(UserCreationForm):
         
 
 #Create Add Record Form
+
+
+#Choices for payment_method
+payment_choices = (
+    ("PAYMENT METHOD","Payment Method"),
+    ("INSTALLMENTS","Installments"),
+    ("DIRECTLY UPFRONT","Directly Upfront"),
+)
+
 class AddMemberForm(forms.ModelForm):
     first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class":"form-control"}), label="")
     last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class":"form-control"}), label="")
@@ -40,10 +49,10 @@ class AddMemberForm(forms.ModelForm):
     email = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Email", "class":"form-control"}), label="")
     address = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Address", "class":"form-control"}), label="")
     institution = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Institution", "class":"form-control"}), label="")
-    payment_method = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Payment Method", "class":"form-control"}), label="")
+    payment_method = forms.ChoiceField(required=True,choices=payment_choices, widget=forms.widgets.Select(attrs={"class":"form-control"}), label="")
     blood_group =forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"Blood Group", "class":"form-control"}), label="")
-    date_of_birth = forms.DateField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Date of Birth", "class":"form-control"}), label="")
+    date_of_birth = forms.DateField(widget=forms.widgets.TextInput(attrs={"placeholder":"Date of Birth", "class":"form-control"}), label="")
     
     class Meta:
         model = Member
-        exclude = ("user",)
+        exclude = ("user", "position", "committee")

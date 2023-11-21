@@ -18,7 +18,7 @@
             </div>
             <div><strong>Blood Group:</strong> {{ member_record.blood_group }}</div>
           </div>
-          <a href="#" class="card-link">Edit</a>
+          <a href="{% url 'update_record' member_record.id %}" class="card-link">Edit</a>
           <a href="{% url 'delete_record' member_record.id %}" class="card-link text-danger">Delete</a>
         </div>
       </div>

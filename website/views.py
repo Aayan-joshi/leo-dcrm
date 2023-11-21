@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignUpForm
+from .forms import SignUpForm, AddMemberForm
 from .models import Member
 
 # Create your views here.
@@ -79,4 +79,17 @@ def add_record(request):
         return render(request, 'add_record.html', {'form':form})
     else: 
         messages.success(request, "Login Error!!")
+        return redirect('home')
+
+def update_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Member.objects.get(id=pk)
+        form = AddMemberForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "record updated successfully")
+            return redirect('home')
+        return render(request,'update_record.html', {'form':form})
+    else:
+        messages.success(request, "Log in Error")
         return redirect('home')
